@@ -1,0 +1,77 @@
+<%= form_for(@household) do |f| %>
+  <% if @household.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@household.errors.count, "error") %> prohibited this household from being saved:</h2>
+
+      <ul>
+      <% @household.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :street %><br />
+    <%= f.text_field :street %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br />
+    <%= f.text_field :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :adult_one_firstname %><br />
+    <%= f.text_field :adult_one_firstname %>
+  </div>
+  <div class="field">
+    <%= f.label :adult_one_lastname %><br />
+    <%= f.text_field :adult_one_lastname %>
+  </div>
+  <div class="field">
+    <%= f.label :adult_one_email %><br />
+    <%= f.text_field :adult_one_email %>
+  </div>
+  <div class="field">
+    <%= f.label :adult_one_phone %><br />
+    <%= f.text_field :adult_one_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :adult_one_text %><br />
+    <%= f.check_box :adult_one_text %>
+  </div>
+  <div class="field">
+    <%= f.label :adult_two_firstname %><br />
+    <%= f.text_field :adult_two_firstname %>
+  </div>
+  <div class="field">
+    <%= f.label :adult_two_lastname %><br />
+    <%= f.text_field :adult_two_lastname %>
+  </div>
+  <div class="field">
+    <%= f.label :adult_two_email %><br />
+    <%= f.text_field :adult_two_email %>
+  </div>
+  <div class="field">
+    <%= f.label :adult_two_phone %><br />
+    <%= f.text_field :adult_two_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :adult_two_text %><br />
+    <%= f.check_box :adult_two_text %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  firstname: MyString
+  lastname: MyString
+  school_class_id: 1
+  primary_household_id: 1
+  secondary_household_id: 1
+
+two:
+  firstname: MyString
+  lastname: MyString
+  school_class_id: 1
+  primary_household_id: 1
+  secondary_household_id: 1
