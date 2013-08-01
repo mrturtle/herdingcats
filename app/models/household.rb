@@ -1,5 +1,5 @@
 class Household < ActiveRecord::Base
-  attr_accessible :adult_one_email, :adult_one_firstname, :adult_one_lastname, :adult_one_phone, :adult_one_text, :adult_two_email, :adult_two_firstname, :adult_two_lastname, :adult_two_phone, :adult_two_text, :city, :email, :phone, :street, :zip
+  attr_accessible :adult_one_email, :adult_one_firstname, :adult_one_lastname, :adult_one_phone, :adult_one_text, :adult_two_email, :adult_two_firstname, :adult_two_lastname, :adult_two_phone, :adult_two_text, :city, :email, :phone, :street, :zip, :show_information
   
   has_many :students, :foreign_key => :primary_household_id
   has_many :secondary_students, :foreign_key => :secondary_household_id
