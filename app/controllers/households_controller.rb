@@ -1,4 +1,5 @@
 class HouseholdsController < ApplicationController
+  before_filter :get_household, :only => [:show, :edit, :update, :destroy]
   before_filter :check_token, :only => [:edit]
   
   # GET /households
@@ -15,7 +16,6 @@ class HouseholdsController < ApplicationController
   # GET /households/1
   # GET /households/1.json
   def show
-    @household = Household.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,7 +36,6 @@ class HouseholdsController < ApplicationController
 
   # GET /households/1/edit
   def edit
-    @household = Household.find(params[:id])
   end
 
   # POST /households
@@ -58,7 +57,6 @@ class HouseholdsController < ApplicationController
   # PUT /households/1
   # PUT /households/1.json
   def update
-    @household = Household.find(params[:id])
 
     respond_to do |format|
       if @household.update_attributes(params[:household])
@@ -74,7 +72,6 @@ class HouseholdsController < ApplicationController
   # DELETE /households/1
   # DELETE /households/1.json
   def destroy
-    @household = Household.find(params[:id])
     @household.destroy
 
     respond_to do |format|
@@ -84,10 +81,11 @@ class HouseholdsController < ApplicationController
   end
   
   private
+  def get_household
+    @household = Household.find(params[:id])    
+  end
   
   def check_token
-    # determine the household
-    @household = Household.find(params[:id])
     # get the token from the session or params
     token = session[:token] || params[:token]
     # redirect to root if token is invalid
