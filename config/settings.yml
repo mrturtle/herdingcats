@@ -1,0 +1,3 @@
+defaults:
+  email_subject: Welcome to our directory!
+  email_from: info@yoursite.com

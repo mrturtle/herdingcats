@@ -1,3 +1,26 @@
 // Place all the styles related to the students controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+div.class{
+  border: 1px;
+  .student, .column-headers{
+    display: block;
+    clear: left;
+    span{
+      width: 10em;
+      display: block;
+      float: left;
+    }
+    span.wide{
+      width: 25em;
+    }
+    span.header{
+      font-weight :bold;
+    }
+  }
+  .student:hover {
+    background-color: blue;
+    color: white;
+  }
+  
+}

@@ -3,29 +3,24 @@
 <% @students_by_grade.sort.each do |grade, students| %>
   <h2><%= SchoolClass.find(grade).name %></h2>
 
-  <table>
-    <tr>
-      <th>Last name</th>
-      <th>First name</th>
-      <th>Primary household</th>
-      <th>Secondary household</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+  <div class="class">
+    <div class="column-headers">
+    <span class="header">Last name</span>
+    <span class="header">First name</span>
+    <span class="header">Parents</span>
+    </div>
 
   <% for student in students %>
-  <tr>
-    <td><%= student.lastname %></td>
-    <td><%= student.firstname %></td>
-    <td><%= student.primary_household.adults unless student.primary_household.nil? %></td>
-    <td><%= student.secondary_household.adults unless student.secondary_household.nil? %></td>
-    <td><%= link_to 'Show', student %></td>
-    <td><%= link_to 'Edit', edit_student_path(student) %></td>
-    <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+    <div class="student">
+      <span><%= student.lastname %></span>
+      <span><%= student.firstname %></span>
+      <span class="wide"><%= student.primary_household.adults unless student.primary_household.nil? %> <%= " & " + student.secondary_household.adults unless student.secondary_household.nil? %></span>
+      <%= link_to 'Show', student %> | 
+      <%= link_to 'Edit', edit_student_path(student) %> | 
+      <%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
   <% end %>
-</table>
+</div>
 
 <% end %>
 
