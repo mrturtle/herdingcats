@@ -25,4 +25,8 @@ class Household < ActiveRecord::Base
   def adult_two_fullname
     "#{adult_two_firstname} #{adult_two_lastname}"
   end
+  
+  def token
+    Digest::MD5.hexdigest("#{students[0].firstname}#{id}#{Rails.configuration.secret_phrase}")
+  end
 end

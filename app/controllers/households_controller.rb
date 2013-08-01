@@ -1,4 +1,6 @@
 class HouseholdsController < ApplicationController
+  before_filter :check_token, :only => [:edit]
+  
   # GET /households
   # GET /households.json
   def index
@@ -79,5 +81,18 @@ class HouseholdsController < ApplicationController
       format.html { redirect_to households_url }
       format.json { head :no_content }
     end
+  end
+  
+  private
+  
+  def check_token
+    # determine the household
+    @household = Household.find(params[:id])
+    # get the token from the session or params
+    token = session[:token] || params[:token]
+    # redirect to root if token is invalid
+    redirect_to '/' if params[:token] != @household.token
+    # save param token to session if not there already
+    session[:token] = params[:token] if session[:token].blank?
   end
 end
