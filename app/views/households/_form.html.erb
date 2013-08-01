@@ -11,6 +11,10 @@
     </div>
   <% end %>
 
+<% if @household.students %>
+<p>Home of <%= @household.students.collect(&:firstname).join(", ") %></p>
+<% end %>
+
   <div class="field hfield">
     <%= f.label :street %>
     <%= f.text_field :street %>
@@ -24,12 +28,12 @@
     <%= f.text_field :zip %>
   </div>
   <div class="field hfield">
-    <%= f.label :phone, "Home Phone" %>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field hfield">
     <%= f.label :email, "Family Email" %>
     <%= f.text_field :email %>
+  </div>
+  <div class="field hfield">
+    <%= f.label :phone, "Home Phone" %>
+    <%= f.text_field :phone %>
   </div>
 <h3>Adult One</h3>
   <div class="field hfield">
