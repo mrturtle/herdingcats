@@ -73,6 +73,11 @@
     <%= f.label :adult_two_text, "Can we text this number?"  %>
     <%= f.check_box :adult_two_text %>
   </div>
+  <div class="field hfield">
+    <%= f.label :show_information, "I would like this information to be in the directory" %>
+    <%= f.radio_button :show_information, true %> Yes please | 
+    <%= f.radio_button :show_information, false %> No thank you
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
