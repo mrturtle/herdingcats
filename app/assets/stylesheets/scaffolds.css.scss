@@ -33,6 +33,14 @@ div {
   &.field, &.actions {
     margin-bottom: 10px;
   }
+  &.hfield label {
+    width: 15em;
+    text-align: right;
+    display: inline-block;
+  }
+  &.hfield input {
+    display: inline-block;
+  }
 }
 
 #notice {
