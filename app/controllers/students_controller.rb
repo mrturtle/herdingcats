@@ -2,7 +2,7 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @students = Student.all
+    @students = Student.includes(:primary_household)
     @students_by_grade = @students.group_by{|stu| stu.school_class_id}
 
     respond_to do |format|
