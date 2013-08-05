@@ -2,7 +2,9 @@ Directory::Application.routes.draw do
 
   resources :households
   resources :school_classes
-  resources :students
+  resources :students do
+    get 'send_verification_email', :on => :member
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
