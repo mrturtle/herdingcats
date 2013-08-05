@@ -3,6 +3,7 @@ defaults: &defaults
   email_subject: Welcome to our directory!
   email_from: info@yoursite.com
   secret_phrase: ThisCanBeWhatever
+  school_name: Your School Here
   
 development:
   <<: *defaults

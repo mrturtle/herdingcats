@@ -1,4 +1,4 @@
-<h1>Russell Dougherty Students</h1>
+<h1><%= Rails.configuration.school_name %> Students</h1>
 
 <% @students_by_grade.sort.each do |grade, students| %>
   <h2><%= SchoolClass.find(grade).name %></h2>
