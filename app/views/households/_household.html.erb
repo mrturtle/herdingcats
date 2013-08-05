@@ -1,0 +1,22 @@
+<h4><%= household.adults %></h4>
+<p><%= household.address %></p>
+<% unless household.email.blank? %>
+<p>Email: <%= mail_to household.email %></p>
+<% end %>
+<% unless household.phone.blank? %>
+<p>Phone: <%= household.phone %></p>
+<% end %>
+
+<% if household.adult_one_email || household.adult_one_phone %>
+<p><strong>Contact <%= household.adult_one_firstname %></strong>:<br>
+<%= household.adult_one_phone  if household.adult_one_phone %><br> 
+<%= mail_to household.adult_one_email if household.adult_one_email %>
+</p>
+<% end %>
+
+<% if household.adult_two_email || household.adult_two_phone %>
+<p><strong>Contact <%= household.adult_two_firstname %></strong>:<br>
+<%= household.adult_two_phone if household.adult_two_phone %><br>
+<%= mail_to household.adult_two_email if household.adult_two_email %>
+</p>
+<% end %>

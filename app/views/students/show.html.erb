@@ -10,56 +10,12 @@
 <h3>Primary Household</h3>
 <% end %>
 
-<p><%= @student.primary_household.adults %></p>
-<p><%= @student.primary_household.address %></p>
-<% if @student.primary_household.email %>
-<p>Email: <%= mail_to @student.primary_household.email %></p>
-<% end %>
-<% if @student.primary_household.phone %>
-<p>Phone: <%= @student.primary_household.phone %></p>
-<% end %>
-
-<% if @student.primary_household.adult_one_email || @student.primary_household.adult_one_phone %>
-<p>Contact <%= @student.primary_household.adult_one_firstname %>:<br>
-<%= @student.primary_household.adult_one_phone if @student.primary_household.adult_one_phone %> 
-<%= mail_to @student.primary_household.adult_one_email if @student.primary_household.adult_one_email %>
-</p>
-<% end %>
-
-<% if @student.primary_household.adult_two_email || @student.primary_household.adult_two_phone %>
-<p>Contact <%= @student.primary_household.adult_two_firstname %>:<br>
-<%= @student.primary_household.adult_two_phone if @student.primary_household.adult_two_phone %> 
-<%= mail_to @student.primary_household.adult_two_email if @student.primary_household.adult_two_email %>
-</p>
-<% end %>
+<%= render "households/household", :household => @student.primary_household %>
 
 <% if @student.secondary_household %>
 <h3>Secondary household:</h3>
 
-<p><%= @student.secondary_household.adults %></p>
-<p><%= @student.secondary_household.address %></p>
-
-<% if @student.secondary_household.email %>
-<p>Email: <%= mail_to @student.secondary_household.email %></p>
-<% end %>
-<% if @student.secondary_household.phone %>
-<p>Phone: <%= @student.secondary_household.phone %></p>
-<% end %>
-
-
-<% if @student.secondary_household.adult_one_email || @student.secondary_household.adult_one_phone %>
-<p>Contact <%= @student.secondary_household.adult_one_firstname %>:<br>
-<%= @student.secondary_household.adult_one_phone if @student.secondary_household.adult_one_phone %> 
-<%= mail_to @student.secondary_household.adult_one_email if @student.secondary_household.adult_one_email %>
-</p>
-<% end %>
-
-<% if @student.secondary_household.adult_two_email || @student.secondary_household.adult_two_phone %>
-<p>Contact <%= @student.secondary_household.adult_two_firstname %>:<br>
-<%= @student.secondary_household.adult_two_phone if @student.secondary_household.adult_two_phone %> 
-<%= mail_to @student.secondary_household.adult_two_email if @student.secondary_household.adult_two_email %>
-</p>
-<% end %>
+<%= render "households/household", :household => @student.primary_household %>
 
 <% end %>
 
