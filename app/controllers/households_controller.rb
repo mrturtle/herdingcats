@@ -16,7 +16,8 @@ class HouseholdsController < ApplicationController
   # GET /households/1
   # GET /households/1.json
   def show
-    flash[:notice] = "Thank you for updating your information!"
+    # if a parent is editing, thank them in the flash
+    flash[:notice] = "Thank you for updating your information!" if session[:token]
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @household }
