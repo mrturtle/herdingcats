@@ -6,7 +6,7 @@ class SchoolClassesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @school_classes }
+      format.json { render :json => @school_classes }
     end
   end
 
@@ -17,7 +17,7 @@ class SchoolClassesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @school_class }
+      format.json { render :json => @school_class }
     end
   end
 
@@ -28,7 +28,7 @@ class SchoolClassesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @school_class }
+      format.json { render :json => @school_class }
     end
   end
 
@@ -44,11 +44,11 @@ class SchoolClassesController < ApplicationController
 
     respond_to do |format|
       if @school_class.save
-        format.html { redirect_to @school_class, notice: 'School class was successfully created.' }
-        format.json { render json: @school_class, status: :created, location: @school_class }
+        format.html { redirect_to @school_class, :notice => 'School class was successfully created.' }
+        format.json { render :json => @school_class, :status => :created, :location => @school_class }
       else
-        format.html { render action: "new" }
-        format.json { render json: @school_class.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @school_class.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +60,11 @@ class SchoolClassesController < ApplicationController
 
     respond_to do |format|
       if @school_class.update_attributes(params[:school_class])
-        format.html { redirect_to @school_class, notice: 'School class was successfully updated.' }
+        format.html { redirect_to @school_class, :notice => 'School class was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @school_class.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @school_class.errors, :status => :unprocessable_entity }
       end
     end
   end

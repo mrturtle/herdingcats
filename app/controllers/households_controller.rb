@@ -9,7 +9,7 @@ class HouseholdsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @households }
+      format.json { render :json => @households }
     end
   end
 
@@ -19,7 +19,7 @@ class HouseholdsController < ApplicationController
     flash[:notice] = "Thank you for updating your information!"
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @household }
+      format.json { render :json => @household }
     end
   end
 
@@ -30,7 +30,7 @@ class HouseholdsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @household }
+      format.json { render :json => @household }
     end
   end
 
@@ -45,11 +45,11 @@ class HouseholdsController < ApplicationController
 
     respond_to do |format|
       if @household.save
-        format.html { redirect_to @household, notice: 'Household was successfully created.' }
-        format.json { render json: @household, status: :created, location: @household }
+        format.html { redirect_to @household, :notice => 'Household was successfully created.' }
+        format.json { render :json => @household, :status => :created, :location => @household }
       else
-        format.html { render action: "new" }
-        format.json { render json: @household.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @household.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +60,11 @@ class HouseholdsController < ApplicationController
 
     respond_to do |format|
       if @household.update_attributes(params[:household])
-        format.html { redirect_to @household, notice: 'Household was successfully updated.' }
+        format.html { redirect_to @household, :notice => 'Household was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @household.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @household.errors, :status => :unprocessable_entity }
       end
     end
   end
