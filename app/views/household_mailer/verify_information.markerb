@@ -1,2 +1,5 @@
-Greetings <%= @household.adults %>!
+<p>Greetings <%= @household.adults %>!</p>
 
+<p>We need your help to ensure our directory is up to date. Please go to <%= link_to "this link", edit_household_url(@household, :token => @household.token, :host => "directory.rdpto.org") %> and update whatever you need to for your household.</p>
+
+<p>Thanks for your help! We look forward to a great year. If you have any questions, please email us @ <%= mail_to "directory@rdpto.org" %>.</p>
