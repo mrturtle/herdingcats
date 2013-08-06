@@ -16,8 +16,9 @@
       <span><%= student.firstname %></span>
       <span class="wide"><%= student.primary_household.adults unless student.primary_household.nil? %> <%= " & " + student.secondary_household.adults unless student.secondary_household.nil? %></span>
       <%= link_to 'Show', student %> | 
-      <%= link_to 'Edit', edit_student_path(student) %> | 
-      <%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <!--<%= link_to 'Edit', edit_student_path(student) %> | 
+      <%= link_to 'Destroy', student, :method => :delete, :data => { :confirm => 'Are you sure?' } %> | -->
+	  <%= link_to 'Send verify-info email', send_verification_email_student_path(student) %>
     </div>
   <% end %>
 </div>

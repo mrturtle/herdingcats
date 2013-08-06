@@ -1,5 +1,4 @@
 class HouseholdMailer < ActionMailer::Base
-  default from: Rails.configuration.email_from
   
   def verify_information(household)
       @household = household
