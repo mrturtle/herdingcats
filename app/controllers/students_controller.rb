@@ -81,4 +81,18 @@ class StudentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def send_verification_email
+    # get the student
+    @student = Student.find(params[:id])
+    # send an email to the primary household
+    HouseholdMailer.verify_information(@student.primary_household).deliver if @student.primary_household
+    # send an email to the secondary household
+    HouseholdMailer.verify_information(@student.secondary_household).deliver if @student.secondary_household
+
+    respond_to do |format|
+      format.html { redirect_to students_url, notice: "Verification email sent to #{@student.fullname}'s household(s)" }
+    end
+    
+  end
 end
